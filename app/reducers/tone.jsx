@@ -30,19 +30,7 @@ export const getEmotion = emotion => ({
 export const fetchEmotion= (input) =>
   dispatch =>
     axios.post('/api/tone', {text: input})
-      .then((data) => {
-        console.log("data.data is THiS ", data.data.document_tone, "data is this ", data)
-        var allEmotions = data.data.document_tone.tone_categories[0].tones;
-        var max = 0;
-        var topEmotion;
-        allEmotions.forEach((emotion) =>{
-          if (emotion.score > max) {
-            max = emotion.score;
-            topEmotion = emotion.tone_name;
-          }
-        })
-        dispatch(getEmotion(topEmotion))
-      })
+      .then((data) => dispatch(getEmotion(data.data)))
       .catch(console.error)
 
 export default reducer;

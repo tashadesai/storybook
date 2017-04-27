@@ -18,17 +18,20 @@ app.post('/', function(req, res, next) {
       return next(err)
     }
     // return res.json(data)
-    res.send(data)
+    // res.send(data)
+    var allEmotions = data.document_tone.tone_categories[0].tones
+    var max = 0
+    var topEmotion
+    allEmotions.forEach((emotion) => {
+      if (emotion.score > max) {
+        max = emotion.score
+        topEmotion = emotion.tone_name
+      }
+    })
+    res.send(topEmotion)
   })
 })
 
 
 module.exports = app
 
-// toneAnalyzer.tone({ text: 'A word is dead when it is said, some say. Emily Dickinson' },
-//   function(err, tone) {
-//     if (err)
-//       console.log(err);
-//     else
-//       console.log(JSON.stringify(tone, null, 2));
-// });

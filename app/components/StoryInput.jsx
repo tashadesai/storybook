@@ -1,9 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {browserHistory} from 'react-router'
 import {fetchEmotion} from '../reducers/tone'
 import {fetchNouns, fetchPeople, fetchPlaces} from '../reducers/words'
-// import ReviewContainer from './ReviewContainer'
-// import {getSingleGlassesReviews} from '../reducers/reviews'
 
 class StoryInput extends React.Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class StoryInput extends React.Component {
     this.props.analyzeNouns(evt.target.storyInput.value)
     this.props.analyzePeople(evt.target.storyInput.value)
     this.props.analyzePlaces(evt.target.storyInput.value)
+    browserHistory.push('/startstory')
   }
 
   render() {
@@ -24,7 +24,7 @@ class StoryInput extends React.Component {
       <div>
         <form onSubmit={this.analyze}>
           <div className="form-group">
-            <textarea type="text" className="form-control" placeholder="Story" name="storyInput"/>
+            <textarea type="text" className="form-control" placeholder="Story" name="storyInput" required/>
           </div>
           <button className="btn btn-default">Submit</button>
         </form>

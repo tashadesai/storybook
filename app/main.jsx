@@ -6,9 +6,13 @@ import {connect, Provider} from 'react-redux'
 
 import store from './store'
 import StoryInput from './components/StoryInput'
-import Login from './components/Login'
-import WhoAmI from './components/WhoAmI'
 import NotFound from './components/NotFound'
+import StartStory from './components/StartStory'
+import Anger from './components/Anger'
+import Disgust from './components/Disgust'
+import Fear from './components/Fear'
+import Joy from './components/Joy'
+import Sadness from './components/Sadness'
 
 render(
   <Provider store={store}>
@@ -17,6 +21,12 @@ render(
         <IndexRedirect to="/storyinput" />
         <Route path="/storyinput" component={StoryInput} />
       </Route>
+      <Route path="/startstory" component={StartStory} />
+      <Route path="/anger" component={Anger} />
+      <Route path="/disgust" component={Disgust} />
+      <Route path="/fear" component={Fear} />
+      <Route path="/joy" component={Joy} />
+      <Route path="/sadness" component={Sadness} />
       <Route path='*' component={NotFound} />
     </Router>
   </Provider>,
