@@ -18,7 +18,7 @@ class Disgust extends React.Component {
       color: colors[Math.floor(Math.random() * colors.length)]
     })
   }
-
+//hel
   render() {
     return (
       <Scene>
