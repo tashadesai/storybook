@@ -49,19 +49,20 @@ export const getPlaces = places => ({
 export const fetchNouns= (input) =>
   dispatch =>
     axios.post('/api/words/nouns', {text: input})
-      .then((foundNouns) => dispatch(getNouns(foundNouns)))
+      .then((foundNouns) =>
+        dispatch(getNouns(foundNouns.data)))
       .catch(console.error)
 
 export const fetchPeople= (input) =>
   dispatch =>
     axios.post('/api/words/people', {text: input})
-      .then((foundPeople) => dispatch(getPeople(foundPeople)))
+      .then((foundPeople) => dispatch(getPeople(foundPeople.data)))
       .catch(console.error)
 
 export const fetchPlaces= (input) =>
   dispatch =>
     axios.post('/api/words/places', {text: input})
-      .then((foundPlaces) => dispatch(getPlaces(foundPlaces)))
+      .then((foundPlaces) => dispatch(getPlaces(foundPlaces.data)))
       .catch(console.error)
 
 export default reducer
