@@ -56,9 +56,11 @@ class StoryInput extends React.Component {
           <form onSubmit={func}>
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Character Name" name={id} />
-              <input type="radio" name="firstname" value="http://i.imgur.com/6pdR4rG.png"/><img src="http://i.imgur.com/6pdR4rG.png"/>
-              <input type="radio" name="firstname" value=""/>HI
-            </div>
+              <input type="radio" name="firstname" value="http://i.imgur.com/sYn7PZ2.png"/><img src="http://i.imgur.com/sYn7PZ2.png"/>
+              <input type="radio" name="firstname" value="http://i.imgur.com/r8sBBiW.png"/><img src="http://i.imgur.com/r8sBBiW.png" />
+              <input type="radio" name="firstname" value="http://i.imgur.com/56XfI8b.png"/><img src="http://i.imgur.com/56XfI8b.png" />
+              <input type="radio" name="firstname" value="http://i.imgur.com/ONkEcfz.png"/><img src="http://i.imgur.com/ONkEcfz.png" />
+              </div>
             <button className="btn btn-default">Add character</button>
           </form>
           <button className="btn btn-default" onClick={this.start}>I'm ready</button>
