@@ -1,13 +1,12 @@
 'use strict'
 
 const db = require('APP/db')
-    , {User, Thing, Favorite, Promise} = db
+    , {User, Thing, Favorite, Promise, Render} = db
     , {mapValues} = require('lodash')
 
 function seedEverything() {
   const seeded = {
-    users: users(),
-    things: things(),
+    renders: renders()
   }
 
   seeded.favorites = favorites(seeded)
@@ -15,24 +14,105 @@ function seedEverything() {
   return Promise.props(seeded)
 }
 
-const users = seed(User, {
-  god: {
-    email: 'god@example.com',
-    name: 'So many names',
-    password: '1234',
+const renders = seed(Render, {
+  boy: {
+    name: 'boy',
+    image: 'http://i.imgur.com/3NOvG4t.png'
   },
-  barack: {
-    name: 'Barack Obama',
-    email: 'barack@example.gov',
-    password: '1234'
+  girl: {
+    name: 'girl',
+    image: 'http://i.imgur.com/EsO3iMd.jpg'
   },
+  man: {
+    name: 'man',
+    image: 'http://i.imgur.com/xIOvGWa.png'
+  },
+  woman: {
+    name: 'woman',
+    image: 'http://i.imgur.com/XOqM5AE.png'
+  },
+  omri: {
+    name: 'Omri',
+    color: 'pink',
+    material: 'acetate',
+    price: 21000,
+    description: `You'll look totally heroic in these specs.`,
+    image: 'http://i.imgur.com/u9I91HD.png',
+    quantity: 31,
+    season_id: 2
+  },
+  john: {
+    name: 'John',
+    color: 'red',
+    material: 'acetate',
+    price: 10000,
+    description: `You'll look totally British in these specs.`,
+    image: 'http://i.imgur.com/dHxKtyq.png',
+    quantity: 84,
+    season_id: 2
+  },
+  sam: {
+    name: 'Sam',
+    color: 'multi',
+    material: 'acetate',
+    price: 26000,
+    description: `You'll look totally spiffy in these specs.`,
+    image: 'http://i.imgur.com/kNe7EV8.png',
+    quantity: 12,
+    season_id: 3
+  },
+  ian: {
+    name: 'Ian',
+    color: 'gold',
+    material: 'metal',
+    price: 16500,
+    description: `You'll look totally fresh in these specs.`,
+    image: 'http://i.imgur.com/tcvgy5p.png',
+    quantity: 31,
+    season_id: 3
+  },
+  lisa: {
+    name: 'Lisa',
+    color: 'brown',
+    material: 'mixed',
+    price: 12500,
+    description: `You'll look totally retro in these specs.`,
+    image: 'http://i.imgur.com/Icvi1y4.png',
+    quantity: 106,
+    season_id: 3
+  },
+  yoonah: {
+    name: 'Yoo-Nah',
+    color: 'brown',
+    material: 'acetate',
+    price: 19500,
+    description: `You'll look totally Harry-Potter-ish in these specs.`,
+    image: 'http://i.imgur.com/MQ2Tv9C.png',
+    quantity: 8,
+    season_id: 4
+  },
+  robbyn: {
+    name: 'Robbyn',
+    color: 'blue',
+    material: 'acetate',
+    price: 23500,
+    description: `You'll look totally smart in these specs.`,
+    image: 'http://i.imgur.com/GVwBDLx.png',
+    quantity: 76,
+    season_id: 4
+  },
+  damon: {
+    name: 'Damon',
+    color: 'multi',
+    material: 'mixed',
+    price: 20500,
+    description: `You'll look totally vogue in these specs.`,
+    image: 'http://i.imgur.com/NHnYUPc.png',
+    quantity: 49,
+    season_id: 4
+  }
 })
 
-const things = seed(Thing, {
-  surfing: {name: 'surfing'},
-  smiting: {name: 'smiting'},
-  puppies: {name: 'puppies'},
-})
 
 const favorites = seed(Favorite,
   // We're specifying a function here, rather than just a rows object.

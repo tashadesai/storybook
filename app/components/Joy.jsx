@@ -24,7 +24,7 @@ class Joy extends React.Component {
       <Scene>
         <a-assets>
           <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg"/>
-          <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"/>
+          <img id="skyTexture" src="http://i.imgur.com/Vw04Buz.jpg"/>
         </a-assets>
 
         <Entity primitive="a-plane" src="#groundTexture" rotation="-90 0 0" height="100" width="100"/>

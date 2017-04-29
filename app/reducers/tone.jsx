@@ -1,9 +1,11 @@
 import axios from 'axios'
 
 const GET_TONE_EMOTION = 'GET_TONE_EMOTION'
+const GET_STORY_TEXT = 'GET_STORY_TEXT'
 
 const defaultState = {
-  emotion: ''
+  emotion: '',
+  storyText: []
 }
 
 
@@ -13,6 +15,10 @@ const reducer = (state=defaultState, action) => {
   switch (action.type) {
   case GET_TONE_EMOTION:
     newState.emotion = action.emotion
+    break
+
+  case GET_STORY_TEXT:
+    newState.storyText = action.storyText
     break
 
   default:
@@ -25,6 +31,9 @@ const reducer = (state=defaultState, action) => {
 export const getEmotion = emotion => ({
   type: GET_TONE_EMOTION, emotion
 })
+export const getStoryText = storyText => ({
+  type: GET_STORY_TEXT, storyText
+})
 
 
 export const fetchEmotion= (input) =>
@@ -33,4 +42,7 @@ export const fetchEmotion= (input) =>
       .then((data) => dispatch(getEmotion(data.data)))
       .catch(console.error)
 
-export default reducer;
+export const setStoryText= (input) =>
+  getStoryText(input)
+
+export default reducer

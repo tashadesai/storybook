@@ -13,6 +13,7 @@ import Disgust from './components/Disgust'
 import Fear from './components/Fear'
 import Joy from './components/Joy'
 import Sadness from './components/Sadness'
+import ChooseCharacters from './components/ChooseCharacters'
 
 render(
   <Provider store={store}>
@@ -22,6 +23,7 @@ render(
         <Route path="/storyinput" component={StoryInput} />
       </Route>
       <Route path="/startstory" component={StartStory} />
+      <Route path="/choosechars" component={ChooseCharacters} />
       <Route path="/anger" component={Anger} />
       <Route path="/disgust" component={Disgust} />
       <Route path="/fear" component={Fear} />

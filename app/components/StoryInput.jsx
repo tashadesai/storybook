@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {browserHistory} from 'react-router'
-import {fetchEmotion} from '../reducers/tone'
+import {fetchEmotion, setStoryText} from '../reducers/tone'
 import {fetchNouns, fetchPeople, fetchPlaces} from '../reducers/words'
 
 class StoryInput extends React.Component {
@@ -12,11 +12,28 @@ class StoryInput extends React.Component {
 
   analyze(evt) {
     evt.preventDefault()
+    // let storyArr = evt.target.storyInput.value.split('\n')
+    // let storySplitArr = []
+    // let i = 0
+    // let parts = Math.ceil(storyArr.length / 12)
+    // while (i < storyArr.length) {
+    //   var j = 0
+    //   var string = ''
+    //   while (storyArr[i + j] && j < parts) {
+    //     string += storyArr[i + j]
+    //     j++
+    //   }
+    //   storySplitArr.push(string)
+    //   i = i + parts
+    // }
+    // console.log(storySplitArr)
+    this.props.setStoryText(evt.target.storyInput.value)
     this.props.analyzeEmotion(evt.target.storyInput.value)
     this.props.analyzeNouns(evt.target.storyInput.value)
     this.props.analyzePeople(evt.target.storyInput.value)
     this.props.analyzePlaces(evt.target.storyInput.value)
-    browserHistory.push('/startstory')
+    this.props.setStoryText(evt.target.storyInput.value)
+    browserHistory.push('/choosechars')
   }
 
   render() {
@@ -46,7 +63,8 @@ export default connect(
       storyText: state.tone.storyText,
       nouns: state.words.nouns,
       people: state.words.people,
-      places: state.words.places
+      places: state.words.places,
+      characters: state.renders
     }
   },
   function mapDispatchToProps(dispatch) {
@@ -62,6 +80,9 @@ export default connect(
       },
       analyzePlaces: (input) => {
         dispatch(fetchPlaces(input))
+      },
+      setStoryText: (input) => {
+        dispatch(setStoryText(input))
       }
     }
   }
