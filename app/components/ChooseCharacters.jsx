@@ -57,6 +57,7 @@ class StoryInput extends React.Component {
             <div className="form-group">
               <input type="text" className="form-control" placeholder="Character Name" name={id} />
               <input type="radio" name="firstname" value="http://i.imgur.com/6pdR4rG.png"/><img src="http://i.imgur.com/6pdR4rG.png"/>
+              <input type="radio" name="firstname" value=""/>HI
             </div>
             <button className="btn btn-default">Add character</button>
           </form>

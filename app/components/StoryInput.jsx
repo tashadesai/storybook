@@ -12,21 +12,6 @@ class StoryInput extends React.Component {
 
   analyze(evt) {
     evt.preventDefault()
-    // let storyArr = evt.target.storyInput.value.split('\n')
-    // let storySplitArr = []
-    // let i = 0
-    // let parts = Math.ceil(storyArr.length / 12)
-    // while (i < storyArr.length) {
-    //   var j = 0
-    //   var string = ''
-    //   while (storyArr[i + j] && j < parts) {
-    //     string += storyArr[i + j]
-    //     j++
-    //   }
-    //   storySplitArr.push(string)
-    //   i = i + parts
-    // }
-    // console.log(storySplitArr)
     this.props.setStoryText(evt.target.storyInput.value)
     this.props.analyzeEmotion(evt.target.storyInput.value)
     this.props.analyzeNouns(evt.target.storyInput.value)
