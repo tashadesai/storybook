@@ -58,24 +58,24 @@ class Sadness extends React.Component {
           <img id="skyTexture" src="https://cdn.aframe.io/a-painter/images/sky.jpg"/>
         </a-assets>
 
-        <Entity primitive="a-plane" src="#groundTexture" rotation="-90 0 0" height="100" width="100"/>
+        <Entity primitive="a-plane" color="" rotation="-90 0 0" height="100" width="100"/>
         <Entity primitive="a-light" type="ambient" color="#445451"/>
-        <Entity primitive="a-light" type="point" intensity="2" position="2 4 4"/>
+        <Entity primitive="a-light" type="hemisphere" intensity="1" position="2 4 4"/>
         <Entity primitive="a-sky" height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"/>
 
-        <Entity text={{value: this.state.splitStory[0], align: 'center'}} position={{x: 0, y: 2, z: -1}}/>
+        <Entity text={{value: this.state.splitStory[0], align: 'center'}} position={{x: -10.711, y: 2.637, z: 18.729}}/>
         {
           this.state.splitStory[0] && charNameArr[0] && this.state.splitStory[0].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="0 1 0" src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99" position="-11.614 0.853 18.577" src={this.props.characters[charNameArr[0]]} rotation="0 0 0" height="1" width="1"/>
         }
         {this.state.splitStory[0] && charNameArr[1] && this.state.splitStory[0].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="0 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99" position="-11.457 0.931 18.565" src={this.props.characters[charNameArr[1]]} rotation="0 0 0" height="1" width="1"/>
         }
         {this.state.splitStory[0] && charNameArr[2] && this.state.splitStory[0].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="0 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="0 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 0 0" height="1" width="1"/>
         }
         {this.state.splitStory[0] && charNameArr[3] && this.state.splitStory[0].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="0 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="0 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 0 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[1], align: 'center'}} position={{x: 2, y: 2, z: -1}}/>
@@ -258,7 +258,7 @@ class Sadness extends React.Component {
             <Entity primitive="a-plane" material="opacity:0.99999" position="24 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
         }
 
-        <Entity primitive="a-camera">
+        <Entity primitive="a-camera" position="-10.933 2.864 19.587" rotation="-17.533 8.824 1.719">
           <Entity primitive="a-cursor" animation__click={{property: 'scale', startEvents: 'click', from: '0.1 0.1 0.1', to: '1 1 1', dur: 150}}/>
         </Entity>
       </Scene>
