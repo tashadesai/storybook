@@ -23,19 +23,14 @@ class StoryInput extends React.Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.analyze}>
+      <div className="mw5 mw7-ns center bg-light-gray pa3 ph5-ns">
+      <p>Type a story below and I'll turn it into a virtual reality picture book for you</p>
+        <form onSubmit={this.analyze} className="center">
           <div className="form-group">
-            <textarea type="text" className="form-control" placeholder="Story" name="storyInput" required/>
+            <textarea rows="100" cols="78" type="text" className="form-control" placeholder="Tell me a story..." name="storyInput" required/>
           </div>
           <button className="btn btn-default">Submit</button>
         </form>
-        <div>
-          <h2>Emotion/Mood: {this.props.emotion}</h2>
-          <h2>Nouns: {this.props.nouns}</h2>
-          <h2>People: {this.props.people}</h2>
-          <h2>Places: {this.props.places}</h2>
-        </div>
       </div>
     )
   }

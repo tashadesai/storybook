@@ -8,31 +8,13 @@ import {fetchCharacters} from '../reducers/renders'
 class StoryInput extends React.Component {
   constructor(props) {
     super(props)
-    this.setCharacterOne = this.setCharacterOne.bind(this)
-    this.setCharacterTwo = this.setCharacterTwo.bind(this)
-    this.setCharacterThree = this.setCharacterThree.bind(this)
-    this.setCharacterFour = this.setCharacterFour.bind(this)
+    this.setCharacter = this.setCharacter.bind(this)
     this.start = this.start.bind(this)
   }
 
-  setCharacterOne(evt) {
+  setCharacter(evt) {
     evt.preventDefault()
-    this.props.setChars(evt.target.character1.value.toLowerCase(), evt.target.firstname.value)
-  }
-
-  setCharacterTwo(evt) {
-    evt.preventDefault()
-    this.props.setChars(evt.target.character2.value.toLowerCase(), "img")
-  }
-
-  setCharacterThree(evt) {
-    evt.preventDefault()
-    this.props.setChars(evt.target.character3.value.toLowerCase(), "img")
-  }
-
-  setCharacterFour(evt) {
-    evt.preventDefault()
-    this.props.setChars(evt.target.character4.value.toLowerCase(), "img")
+    this.props.setChars(evt.target.character.value.toLowerCase(), evt.target.charimg.value)
   }
 
   start() {
@@ -40,33 +22,38 @@ class StoryInput extends React.Component {
   }
 
   render() {
-    var i = 0
-    while (i < 5) {
-      i++
-      var id = 'character' + i
-      var func
-      if (i === 1) func = this.setCharacterOne
-      if (i === 2) func = this.setCharacterTwo
-      if (i === 3) func = this.setCharacterThree
-      if (i === 4) func = this.setCharacterFour
-
-      return (
-        <div>
-        <h1>Who are the characters in this story and what do they look like?</h1>
-          <form onSubmit={func}>
-            <div className="form-group">
-              <input type="text" className="form-control" placeholder="Character Name" name={id} />
-              <input type="radio" name="firstname" value="http://i.imgur.com/sYn7PZ2.png"/><img src="http://i.imgur.com/sYn7PZ2.png"/>
-              <input type="radio" name="firstname" value="http://i.imgur.com/r8sBBiW.png"/><img src="http://i.imgur.com/r8sBBiW.png" />
-              <input type="radio" name="firstname" value="http://i.imgur.com/56XfI8b.png"/><img src="http://i.imgur.com/56XfI8b.png" />
-              <input type="radio" name="firstname" value="http://i.imgur.com/ONkEcfz.png"/><img src="http://i.imgur.com/ONkEcfz.png" />
-              </div>
-            <button className="btn btn-default">Add character</button>
-          </form>
-          <button className="btn btn-default" onClick={this.start}>I'm ready</button>
-        </div>
-      )
-    }
+    return (
+      <div className="mw7 mw8-ns center bg-light-gray pa3 ph5-ns">
+      <h1>Who are the main characters in this story and what do they look like?</h1>
+        <form onSubmit={this.setCharacter}>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Character Name" name='character' />
+            <div className="dt--fixed">
+              <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/3DH2GIX.png" /><img src="http://i.imgur.com/3DH2GIX.png" height="200"/></div>
+              <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/IYb0dnp.png" /><img src="http://i.imgur.com/IYb0dnp.png" height="200"/></div>
+              <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/jUU7b0p.png" /><img src="http://i.imgur.com/jUU7b0p.png" height="200"/></div>
+              <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/Vuk0Gu3.png" /><img src="http://i.imgur.com/Vuk0Gu3.png" height="200"/></div>
+              <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/VTHUgg6.png" /><img src="http://i.imgur.com/VTHUgg6.png" height="200"/></div>
+            </div>
+            <div className="dt--fixed">
+               <div className="fl w-25 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/ZiiTuME.png" /><img src="http://i.imgur.com/ZiiTuME.png" height="200"/></div>
+               <div className="fl w-25 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/PcKF5q0.png" /><img src="http://i.imgur.com/PcKF5q0.png" height="200"/></div>
+               <div className="fl w-25 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/7s01ecX.png" /><img src="http://i.imgur.com/7s01ecX.png" height="200"/></div>
+               <div className="fl w-25 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/p17szQt.png" /><img src="http://i.imgur.com/p17szQt.png" height="200"/></div>
+            </div>
+            <div className="dt--fixed">
+               <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/r1rkBeq.png" /><img src="http://i.imgur.com/r1rkBeq.png" height="200"/></div>
+               <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/qlkBn2n.png" /><img src="http://i.imgur.com/qlkBn2n.png" height="200"/></div>
+               <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/miSnOs2.png" /><img src="http://i.imgur.com/miSnOs2.png" height="200"/></div>
+               <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/qPeXrXf.png" /><img src="http://i.imgur.com/qPeXrXf.png" height="200"/></div>
+               <div className="fl w-20 pa2"><input type="radio" name="charimg" value="http://i.imgur.com/JhlyBCI.png" /><img src="http://i.imgur.com/JhlyBCI.png" height="200"/></div>
+            </div>
+            </div>
+          <button className="btn btn-default">Add character</button>
+        </form>
+        <button className="btn btn-default" onClick={this.start}>I'm ready</button>
+      </div>
+    )
   }
 }
 
