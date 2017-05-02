@@ -13,12 +13,29 @@ class Sadness extends React.Component {
     this.state = {color: 'red'}
     this.splitText = this.splitText.bind(this)
     this.posOne = this.posOne.bind(this)
+    this.posTwo = this.posTwo.bind(this)
   }
 
   posOne(x, y, z) {
-    const first = x - 2.474
-    const second = y - 0.723
-    const third = z - 0.21
+    // const first = x - 2.474
+    // const second = y - 0.723
+    // const third = z - 0.21
+
+    const first = x
+    const second = y
+    const third = z - 1.675
+
+    return '' + first + ' ' + second + ' ' + third + ''
+  }
+
+  posTwo(x, y, z) {
+    // const first = x - 2.474
+    // const second = y - 0.723
+    // const third = z - 0.21
+
+    const first = x
+    const second = y
+    const third = z + 1.449
 
     return '' + first + ' ' + second + ' ' + third + ''
   }
@@ -65,7 +82,6 @@ class Sadness extends React.Component {
         <Entity primitive="a-light" type="point" intensity="0.5" position="2 14 4"/>
         <Entity primitive="a-light" type="point" intensity="0.5" position="-12.869 5.177 27.03"/>
         <Entity primitive="a-sky" height="2048" radius="30" src="#skyTexture" theta-length="90" width="2048"/>
-        <Entity star/>
         <Entity primitive="a-plane" material="opacity:0.99" position="-10.6 4.111 17.16" side="double" transparent="true" scale="6 1 1" src="http://i.imgur.com/XkoUyij.png" rotation="0 0 0" height="1" width="1"/>
 
         <Entity primitive="a-plane" material="opacity:0.99" position="-10.6 3.098 14.11" rotation="90 -81.7 0" scale="3.536 1 1" side="double" transparent="true" src="http://i.imgur.com/HXELLJV.png" height="1" width="1"/>
@@ -113,10 +129,10 @@ class Sadness extends React.Component {
         <Entity text={{value: this.state.splitStory[2], align: 'center'}} position={{x: -24.6, y: 2, z: 3.318}} rotation={{x: 0, y: 61.3, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[2] && charNameArr[0] && this.state.splitStory[2].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="4 1 0" position={this.posOne(-24.6, 2, 3.318)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(-24.6, 2, 3.318)} src={this.props.characters[charNameArr[0]]} rotation="0 61.3 0" height="1" width="1"/>
         }
         {this.state.splitStory[2] && charNameArr[1] && this.state.splitStory[2].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="4 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(-24.6, 2, 3.318)} rotation={{x: 0, y: 61.3, z: 0}} src={this.props.characters[charNameArr[1]]} height="1" width="1"/>
         }
         {this.state.splitStory[2] && charNameArr[2] && this.state.splitStory[2].toLowerCase().indexOf(charNameArr[2]) > -1 &&
             <Entity primitive="a-plane" material="opacity:0.99999" position="4 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
@@ -128,130 +144,132 @@ class Sadness extends React.Component {
         <Entity text={{value: this.state.splitStory[3], align: 'center'}} position={{x: -26.8, y: 1.327, z: -5.21}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[3] && charNameArr[0] && this.state.splitStory[3].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="6 1 0" position="-30.4 1.327 -5.21" src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="-25.6 1.327 -5.21" src={this.props.characters[charNameArr[0]]} height="1" width="1"/>
         }
         {this.state.splitStory[3] && charNameArr[1] && this.state.splitStory[3].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="6 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={"-27.6 1.327 -3.76"} src={this.props.characters[charNameArr[1]]} height="1" width="1"/>
         }
         {this.state.splitStory[3] && charNameArr[2] && this.state.splitStory[3].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="6 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="6 5 0" src={this.props.characters[charNameArr[2]]} height="1" width="1"/>
         }
         {this.state.splitStory[3] && charNameArr[3] && this.state.splitStory[3].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="6 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="6 7 0" src={this.props.characters[charNameArr[3]]} height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[4], align: 'center'}} position={{x: -19.5, y: 0.935, z: -10.2}} rotation={{x: 0, y: -21.887, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[4] && charNameArr[0] && this.state.splitStory[4].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="8 1 0" position="-23.1 0.935 -10.2" src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="-23.1 0.935 -10.2" src={this.props.characters[charNameArr[0]]} rotation="0 -21.887 0" height="1" width="1"/>
         }
         {this.state.splitStory[4] && charNameArr[1] && this.state.splitStory[4].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="8 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(-19.5, 0.935, -10.25)} src={this.props.characters[charNameArr[1]]} rotation="0 -21.887 0" height="1" width="1"/>
         }
         {this.state.splitStory[4] && charNameArr[2] && this.state.splitStory[4].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="8 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="8 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 -21.887 0" height="1" width="1"/>
         }
         {this.state.splitStory[4] && charNameArr[3] && this.state.splitStory[4].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="8 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="8 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 -21.887 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[5], align: 'center'}} position={{x: -8.45, y: 2, z: -3.92}} rotation={{x: 0, y: -130, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[5] && charNameArr[0] && this.state.splitStory[5].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="10 1 0" position="-8.45 2 -3.92" src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="-8.45 2 -6.7" src={this.props.characters[charNameArr[0]]} rotation="0 -130 0" height="1" width="1"/>
         }
         {this.state.splitStory[5] && charNameArr[1] && this.state.splitStory[5].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="10 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(-8.45, 2, -3.92)} rotation={{x: 0, y: -130, z: 0}} src={this.props.characters[charNameArr[1]]} rotation="0 -130 0" height="1" width="1"/>
         }
         {this.state.splitStory[5] && charNameArr[2] && this.state.splitStory[5].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="10 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="10 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 -130 0" height="1" width="1"/>
         }
         {this.state.splitStory[5] && charNameArr[3] && this.state.splitStory[5].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="10 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="10 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 -130 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[6], align: 'center'}} position={{x: 6.777, y: 2, z: -9.39}} rotation={{x: 0, y: -67.27, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[6] && charNameArr[0] && this.state.splitStory[6].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="12 1 0" position={this.posOne(6.777, 2, -9.39)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(6.777, 2, -9.39)} src={this.props.characters[charNameArr[0]]} rotation="0 -67.27 0" height="1" width="1"/>
         }
         {this.state.splitStory[6] && charNameArr[1] && this.state.splitStory[6].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="12 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(6.777, 2, -9.39)} rotation={{x: 0, y: -67.27, z: 0}}src={this.props.characters[charNameArr[1]]} rotation="0 -67.27 0" height="1" width="1"/>
         }
         {this.state.splitStory[6] && charNameArr[2] && this.state.splitStory[6].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="12 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="12 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 -67.27 0" height="1" width="1"/>
         }
         {this.state.splitStory[6] && charNameArr[3] && this.state.splitStory[6].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="12 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="12 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 -67.27 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[7], align: 'center'}} position={{x: 16.66, y: 4.801, z: 3.738}} rotation={{x: 0, y: -139, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[7] && charNameArr[0] && this.state.splitStory[7].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="14 1 0" position={this.posOne(16.66, 4.801, 3.738)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(16.66, 4.801, 3.738)} src={this.props.characters[charNameArr[0]]} rotation="0 -139 0" height="1" width="1"/>
         }
         {this.state.splitStory[7] && charNameArr[1] && this.state.splitStory[7].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="14 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(16.66, 4.801, 3.738)} rotation={{x: 0, y: -139, z: 0}} src={this.props.characters[charNameArr[1]]} rotation="0 -139 0" height="1" width="1"/>
         }
         {this.state.splitStory[7] && charNameArr[2] && this.state.splitStory[7].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="14 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="14 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 -139 0" height="1" width="1"/>
         }
         {this.state.splitStory[7] && charNameArr[3] && this.state.splitStory[7].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="14 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="14 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 -139 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[8], align: 'center'}} position={{x: 11.53, y: 4.639, z: 14.21}} rotation={{x: 0, y: 150.4, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[8] && charNameArr[0] && this.state.splitStory[8].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="16 1 0" position={this.posOne(11.53, 4.639, 14.21)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(11.53, 4.639, 14.21)} src={this.props.characters[charNameArr[0]]} rotation="0 150 0" height="1" width="1"/>
         }
         {this.state.splitStory[8] && charNameArr[1] && this.state.splitStory[8].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="16 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(11.53, 4.639, 14.21)} rotation={{x: 0, y: 150.4, z: 0}} src={this.props.characters[charNameArr[1]]} rotation="0 150 0" height="1" width="1"/>
         }
         {this.state.splitStory[8] && charNameArr[2] && this.state.splitStory[8].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="16 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="16 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 150 0" height="1" width="1"/>
         }
         {this.state.splitStory[8] && charNameArr[3] && this.state.splitStory[8].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="16 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="16 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 150 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[9], align: 'center'}} position={{x: 5.329, y: 4.976, z: 20.04}} rotation={{x: 0, y: -180, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[9] && charNameArr[0] && this.state.splitStory[9].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="18 1 0" position={this.posOne(5.329, 4.976, 20.04)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(5.329, 4.976, 20.04)} src={this.props.characters[charNameArr[0]]} rotation="0-180 0" height="1" width="1"/>
         }
         {this.state.splitStory[9] && charNameArr[1] && this.state.splitStory[9].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="18 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(5.329, 4.976, 20.04)} rotation={{x: 0, y: -180, z: 0}}src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
         }
         {this.state.splitStory[9] && charNameArr[2] && this.state.splitStory[9].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="18 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="18 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 -180 0" height="1" width="1"/>
         }
         {this.state.splitStory[9] && charNameArr[3] && this.state.splitStory[9].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="18 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="18 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 -180 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[10], align: 'center'}} position={{x: 0.251, y: 4.56, z: 12.86}} rotation={{x: 0, y: 7.277, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
+        <Entity primitive="a-plane" material="opacity:0.99" position="1.383 4.375 12.86" rotation="0 7.277 0" scale="1 1 1" side="double" transparent="true" src="http://i.imgur.com/shMHxWL.png" height="1" width="1"/>
+
         {
           this.state.splitStory[10] && charNameArr[0] && this.state.splitStory[10].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="20 1 0" position={this.posOne(0.251, 4.56, 12.86)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(0.251, 4.56, 12.86)} src={this.props.characters[charNameArr[0]]} rotation="0 7.277 0" height="1" width="1"/>
         }
         {this.state.splitStory[10] && charNameArr[1] && this.state.splitStory[10].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="20 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(0.251, 4.56, 12.86)} rotation={{x: 0, y: 7.277, z: 0}} src={this.props.characters[charNameArr[1]]} rotation="0 7.277 0" height="1" width="1"/>
         }
         {this.state.splitStory[10] && charNameArr[2] && this.state.splitStory[10].toLowerCase().indexOf(charNameArr[2]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="20 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="20 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 7.277 0" height="1" width="1"/>
         }
         {this.state.splitStory[10] && charNameArr[3] && this.state.splitStory[10].toLowerCase().indexOf(charNameArr[3]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="20 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position="20 7 0" src={this.props.characters[charNameArr[3]]} rotation="0 7.277 0" height="1" width="1"/>
         }
 
         <Entity text={{value: this.state.splitStory[11], align: 'center'}} position={{x: -2.88, y: 2, z: 7.711}} rotation={{x: 0, y: -180, z: 0}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[11] && charNameArr[0] && this.state.splitStory[11].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="22 1 0" position={this.posOne(-2.88, 2, 7.711)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(-2.88, 2, 7.711)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
         }
         {this.state.splitStory[11] && charNameArr[1] && this.state.splitStory[11].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="22 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(-2.88, 2, 7.711)} rotation={{x: 0, y: -180, z: 0}}src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
         }
         {this.state.splitStory[11] && charNameArr[2] && this.state.splitStory[11].toLowerCase().indexOf(charNameArr[2]) > -1 &&
             <Entity primitive="a-plane" material="opacity:0.99999" position="22 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>
@@ -263,10 +281,10 @@ class Sadness extends React.Component {
         <Entity text={{value: this.state.splitStory[12], align: 'center'}} position={{x: 24, y: 2, z: -1}} scale={{x: 2, y: 2, z: 2}}/>
         {
           this.state.splitStory[12] && charNameArr[0] && this.state.splitStory[12].toLowerCase().indexOf(charNameArr[0]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="24 1 0" position={this.posOne(24, 2, -1)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posOne(24, 2, -1)} src={this.props.characters[charNameArr[0]]} rotation="0 90 0" height="1" width="1"/>
         }
         {this.state.splitStory[12] && charNameArr[1] && this.state.splitStory[12].toLowerCase().indexOf(charNameArr[1]) > -1 &&
-            <Entity primitive="a-plane" material="opacity:0.99999" position="24 3 0" src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
+            <Entity primitive="a-plane" material="opacity:0.99999" position={this.posTwo(24, 2, -1)} src={this.props.characters[charNameArr[1]]} rotation="0 90 0" height="1" width="1"/>
         }
         {this.state.splitStory[12] && charNameArr[2] && this.state.splitStory[12].toLowerCase().indexOf(charNameArr[2]) > -1 &&
             <Entity primitive="a-plane" material="opacity:0.99999" position="24 5 0" src={this.props.characters[charNameArr[2]]} rotation="0 90 0" height="1" width="1"/>

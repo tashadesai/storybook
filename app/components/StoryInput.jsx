@@ -23,8 +23,8 @@ class StoryInput extends React.Component {
 
   render() {
     return (
-      <div className="mw5 mw7-ns center bg-light-gray pa3 ph5-ns">
-      <p>Type a story below and I'll turn it into a virtual reality picture book for you</p>
+      <div className="mw5 mw7-ns center bg-washed-yellow  pa3 ph5-ns">
+      <img src="http://i.imgur.com/07XEMie.png"/>
         <form onSubmit={this.analyze} className="center">
           <div className="form-group">
             <textarea rows="100" cols="78" type="text" className="form-control" placeholder="Tell me a story..." name="storyInput" required/>

@@ -24,9 +24,24 @@ class StartStory extends React.Component {
 
   render() {
     if (this.props.emotion) {
-      return <button className="btn btn-default" onClick={this.renderScene}>Step into your story...</button>
+      return(
+      <div className="mw7 mw8-ns center pa3 ph5-ns">
+      <div className="fl w-third pa2"></div>
+      <div className="fl w-third pa2">
+      <button className="btn btn-default center" onClick={this.renderScene}>Step in to your story...</button>
+      </div>
+      <div className="fl w-third pa2"></div>
+      </div>)
     } else {
-      return <h1>Loading...</h1>
+      return (
+        <div className="mw7 mw8-ns center pa3 ph5-ns">
+      <div className="fl w-third pa2"></div>
+      <div className="fl w-third pa2">
+      <h1 className="center" >Loading...</h1>
+      </div>
+      <div className="fl w-third pa2"></div>
+      </div>
+      )
     }
   }
 }

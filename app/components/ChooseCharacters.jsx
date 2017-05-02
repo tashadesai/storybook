@@ -23,7 +23,7 @@ class StoryInput extends React.Component {
 
   render() {
     return (
-      <div className="mw7 mw8-ns center bg-light-gray pa3 ph5-ns">
+      <div className="mw7 mw8-ns center bg-washed-yellow pa3 ph5-ns">
       <h1>Who are the main characters in this story and what do they look like?</h1>
         <form onSubmit={this.setCharacter}>
           <div className="form-group">
